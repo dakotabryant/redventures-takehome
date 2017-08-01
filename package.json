@@ -1,0 +1,26 @@
+{
+  "name": "redventures-takehome",
+  "version": "0.0.1",
+  "description": "Takehome project for Red Ventures Front-End Developer position",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "node-sass": "^4.5.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dakotabryant/redventures-takehome.git"
+  },
+  "author": "Dakota Bryant",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dakotabryant/redventures-takehome/issues"
+  },
+  "homepage": "https://github.com/dakotabryant/redventures-takehome#readme"
+}
