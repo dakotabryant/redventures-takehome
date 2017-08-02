@@ -10,7 +10,7 @@
   @media screen and (max-width: 950px)
     @content
 =small-mobile()
-  @media screen and (min-width: 320px) and (max-width: 375px)
+  @media screen and (min-width: 300px) and (max-width: 375px)
     @content
 =laptop()
   @media screen and (min-width: 951px) and (max-width: 1412px)
@@ -41,28 +41,28 @@ $blue-light: #46d6d6
 
 //font import
 
-@import url('https://fonts.googleapis.com/css?family=Fjalla+One|Montserrat|Roboto+Condensed')
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800')
 
 // Global Styles
 
 body
-  font-family: 'Montserrat', sans-serif
+  font-family: 'Open Sans', sans-serif
   padding: 0
   margin: 0
   box-sizing: border-box
   display: flex
   flex-direction: column
   justify-content: center
+  overflow-x: hidden
 
 a
   text-decoration: none
   color: inherit
 button
-  font-family: 'Montserrat', sans-serif
+  font-family: 'Open Sans', sans-serif
   background-color: transparent
   border: 1px solid $blue
   color: $blue 
-  font-weight: bold
   border-radius: 4px
   padding: 5px 5px
   display: flex
