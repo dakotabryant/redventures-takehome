@@ -5,6 +5,9 @@
 .uppercase {
   text-transform: uppercase; }
 
+.hidden {
+  display: none; }
+
 header {
   width: 100%;
   height: 55px;
@@ -25,7 +28,8 @@ header {
     margin-right: 65px; }
     @media screen and (min-width: 300px) and (max-width: 375px) {
       header button {
-        margin-right: 45px; } }
+        margin-right: 45px;
+        font-size: 12px; } }
     header button i {
       font-size: 16px !important;
       margin-right: 5px; }
@@ -61,9 +65,13 @@ header {
   .hero-section h2, .hero-section h3, .hero-section hr {
     margin: 0 auto 50px auto; }
   .hero-section h2 {
-    font-size: 26px;
+    font-size: 32px;
     color: white;
-    font-weight: lighter; }
+    font-weight: lighter;
+    width: 80%; }
+    @media screen and (min-width: 300px) and (max-width: 375px) {
+      .hero-section h2 {
+        width: 90%; } }
   .hero-section h3 {
     font-size: 14px;
     color: #46d6d6; }
@@ -81,7 +89,8 @@ header {
 
 .process {
   padding: 30px 15px;
-  position: relative; }
+  position: relative;
+  padding-bottom: 0; }
   .process .number-block {
     display: flex;
     justify-content: center;
@@ -115,8 +124,94 @@ header {
       margin: 0; }
   .process img {
     width: 300%;
-    position: absolute;
-    left: 0; }
+    margin-left: -15px;
+    margin-right: -15px; }
+    @media screen and (min-width: 951px) {
+      .process img {
+        width: 110%; } }
+
+.dealers {
+  width: 100%; }
+  .dealers .filter-container {
+    background-color: #f6f6f6;
+    padding: 25px; }
+    .dealers .filter-container .top-row {
+      display: flex;
+      align-items: center; }
+      .dealers .filter-container .top-row h6 {
+        color: #226bda;
+        font-size: 16px;
+        margin: 0;
+        width: 40%; }
+      .dealers .filter-container .top-row .button-container {
+        display: flex; }
+        .dealers .filter-container .top-row .button-container button {
+          height: 50px;
+          width: 150px;
+          border-radius: 0;
+          background-color: white;
+          border: 1px solid #e6e6e6;
+          color: black;
+          font-size: 16px;
+          font-weight: 800;
+          outline: none; }
+          @media screen and (min-width: 300px) and (max-width: 375px) {
+            .dealers .filter-container .top-row .button-container button {
+              width: 125px; } }
+        .dealers .filter-container .top-row .button-container i {
+          background-color: #f6f6f6;
+          height: 50px;
+          width: 50px;
+          border: 1px solid #e6e6e6;
+          box-sizing: border-box;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding-bottom: 7px;
+          border-left: none;
+          cursor: pointer; }
+    .dealers .filter-container .pop-up-filter {
+      background-color: white;
+      border: 1px solid #e6e6e6; }
+      .dealers .filter-container .pop-up-filter .input-container {
+        margin: 25px;
+        display: flex;
+        align-items: center; }
+        .dealers .filter-container .pop-up-filter .input-container .control {
+          position: relative;
+          display: block;
+          padding-left: 40px;
+          cursor: pointer; }
+          .dealers .filter-container .pop-up-filter .input-container .control input {
+            position: absolute;
+            z-index: -1;
+            opacity: 0; }
+          .dealers .filter-container .pop-up-filter .input-container .control .control__indicator {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 25px;
+            height: 25px;
+            background: #e6e6e6;
+            border-radius: 4px; }
+            .dealers .filter-container .pop-up-filter .input-container .control .control__indicator:hover {
+              background: #ccc; }
+            .dealers .filter-container .pop-up-filter .input-container .control .control__indicator:after {
+              position: absolute;
+              display: none;
+              content: ''; }
+        .dealers .filter-container .pop-up-filter .input-container .control input:checked ~ .control__indicator {
+          background-color: #226bda; }
+          .dealers .filter-container .pop-up-filter .input-container .control input:checked ~ .control__indicator:after {
+            display: block; }
+        .dealers .filter-container .pop-up-filter .input-container .control--checkbox .control__indicator {
+          display: flex;
+          justify-content: center;
+          align-items: center; }
+          .dealers .filter-container .pop-up-filter .input-container .control--checkbox .control__indicator:after {
+            width: 7px;
+            height: 7px;
+            background-color: white; }
 
 body {
   font-family: 'Open Sans', sans-serif;

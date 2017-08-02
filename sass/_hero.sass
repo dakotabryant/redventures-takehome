@@ -10,9 +10,12 @@
   h2, h3, hr
     margin: 0 auto 50px auto
   h2
-    font-size: 26px
+    font-size: 32px
     color: white
     font-weight: lighter
+    width: 80%
+    +small-mobile()
+      width: 90%
   h3
     font-size: 14px
     color: $blue-light
