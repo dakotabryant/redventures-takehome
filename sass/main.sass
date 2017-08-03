@@ -26,6 +26,8 @@ $blue: #226bda
 $blue-dark: #093d91
 $blue-light: #46d6d6
 $gray-light: rgba(black, .4)
+$gray-white: #e6e6e6
+
 
 
 // Styling Classes
@@ -45,6 +47,7 @@ $gray-light: rgba(black, .4)
 @import dealerCards
 @import footer
 @import emailModal
+@import nav
 
 
 
@@ -63,7 +66,19 @@ body
   flex-direction: column
   justify-content: center
   overflow-x: hidden
-  // overflow-y: hidden
+.disclaimer
+  display: none
+  +desktop()
+    display: flex
+    background-color: $blue-dark
+    color: white
+    font-size: 12px
+    display: flex
+    justify-content: flex-end
+    p
+      margin: 15px 15px
+      &:nth-of-type(2)
+        margin-right: 50px
 
 a
   text-decoration: none

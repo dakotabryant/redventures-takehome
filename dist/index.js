@@ -6,10 +6,14 @@ const filterContainer = document.getElementsByClassName('pop-up-filter')[0];
 const filters = document.querySelector('.pop-up-filter');
 const cardParent = document.getElementById('dealer-cards');
 const emailModal = document.getElementsByClassName('email-modal')[0];
-const closeModalButton = document.getElementsByClassName('fa-times')[0];
+const closeModalButton = document.getElementById('email-close');
+const closeMenuButton = document.getElementById('menu-close');
 const myForm = document.getElementById('my-form');
-const hamburger = document.getElementById('hamburer');
+const hamburger = document.getElementById('hamburger');
+const menu = document.getElementById('menu');
+const menuContainer = document.querySelector('.mobile-nav');
 
+console.log(menuContainer)
 function xss(text) {
   try {
     return text
@@ -231,7 +235,16 @@ const renderObject = {
     }
   },
   showMobileMenu: function(e) {
-
+    menu.classList.toggle('hidden');
+    document.body.classList.toggle('hide-scroll');
+  },
+  closeMobileMenu: function(e) {
+    menu.classList.toggle('hidden');
+    document.body.classList.toggle('hide-scroll');
+  },
+  expandMenu: function(e) {
+    if (!event.target.matches('.accordion')) return;
+    event.target.nextElementSibling.classList.toggle('hidden')
   }
 };
 window.addEventListener('load', function() {
@@ -244,3 +257,5 @@ closeModalButton.addEventListener('click', renderObject.closeModal);
 filters.addEventListener('change', stateEditingObject.filterDealers);
 myForm.addEventListener('change', renderObject.validateForm);
 hamburger.addEventListener('click', renderObject.showMobileMenu);
+closeMenuButton.addEventListener('click', renderObject.closeMobileMenu);
+menuContainer.addEventListener('click', renderObject.expandMenu);

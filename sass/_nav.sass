@@ -1,0 +1,76 @@
+.mobile-nav
+  width: 100%
+  position: fixed
+  top: 0
+  background-color: white
+  display: flex
+  flex-direction: column
+  align-items: center
+  z-index: 1000
+  border-width: 4px 0 4px 0 
+  border-color: $blue-light
+  border-style: solid
+  +desktop()
+    display: flex !important
+    flex-direction: row
+    position: relative
+    width: auto
+  h2
+    color: $blue-dark
+    font-size: 18px
+    +desktop()
+      display: none
+  #menu-close
+    position: absolute
+    top: 15px
+    right: 15px
+    color: $blue-light
+    font-size: 26px
+    cursor: pointer
+    width: 25px
+    height: 25px
+    z-index: 9999
+    +desktop()
+      display: none
+  .menu-container
+    width: 100%
+    
+    .accordion
+      display: flex
+      justify-content: flex-start
+      align-items: center
+      background-color: $gray-white
+      width: 100%
+      padding-left: 25px
+      color: rgba(black, .9)
+      font-size: 16px
+      font-weight: 600 !important
+      border: none
+      border-radius: 0
+      height: 75px
+      outline: none
+      margin-bottom: 3px
+      &:hover
+        background-color: $gray-light
+      i
+        color: $blue-light
+        font-size: 22px !important
+        margin-left: auto
+        margin-right: 25px
+
+    &:nth-of-type(4)
+      .accordion
+        margin-bottom: 0px !important
+    .panel
+      display: flex
+      flex-wrap: wrap
+      text-indent: 0
+      padding: 0
+      padding-left: 25px
+      li
+        display: flex
+        width: 50%
+        font-weight: 600
+        color: $blue-light
+        list-style: none
+        cursor: pointer
