@@ -217,8 +217,46 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center; }
-  #dealer-cards .hours {
+  #dealer-cards .card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 40px;
     text-align: center; }
+    #dealer-cards .card h6 {
+      font-size: 22px;
+      font-weight: normal;
+      margin: 0 0 15px 0; }
+    #dealer-cards .card .hours {
+      text-align: center; }
+      #dealer-cards .card .hours h6 {
+        font-weight: bold;
+        font-size: 14px;
+        margin: 0; }
+      #dealer-cards .card .hours p {
+        font-size: 14px;
+        margin: 0; }
+    #dealer-cards .card .call {
+      font-family: 'Open Sans', sans-serif;
+      border: 1px solid #226bda;
+      border-radius: 2px;
+      padding: 5px 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      background-color: #226bda;
+      color: white;
+      font-size: 10px;
+      font-weight: bold; }
+      #dealer-cards .card .call span {
+        margin-left: 5px;
+        margin-right: 5px;
+        font-size: 18px; }
+    #dealer-cards .card .email {
+      font-size: 12px;
+      margin: 15px 0; }
 
 body {
   font-family: 'Open Sans', sans-serif;
