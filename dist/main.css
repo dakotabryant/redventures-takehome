@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800");
 * {
-  transition: ease-in-out .2s; }
+  transition: ease-in-out .2s;
+  box-sizing: border-box; }
 
 .uppercase {
   text-transform: uppercase; }
@@ -110,7 +111,7 @@ header {
       display: flex;
       justify-content: center;
       align-items: center;
-      border: 6px solid #093d91;
+      border: 5px solid #093d91;
       border-radius: 100%;
       color: #46d6d6;
       font-weight: 700;
@@ -118,10 +119,13 @@ header {
     .process .number-block h6 {
       font-size: 16px;
       color: #093d91;
-      margin: 0; }
+      margin: 0;
+      font-weight: 800; }
     .process .number-block p {
       font-size: 12px;
-      margin: 0; }
+      margin: 0;
+      color: rgba(0, 0, 0, 0.7);
+      font-weight: 600; }
   .process img {
     width: 300%;
     margin-left: -15px;
@@ -275,7 +279,8 @@ header {
       font-weight: 800;
       border: 2px solid #46d6d6;
       border-radius: 5px;
-      padding: 10px 25px; }
+      padding: 10px 25px;
+      cursor: pointer; }
       #dealer-cards .card .contact-pro i {
         margin-right: 15px; }
     #dealer-cards .card .email {
@@ -301,6 +306,119 @@ header {
             margin-right: 10px;
             color: rgba(0, 0, 0, 0.4); }
 
+footer .connect {
+  background-color: #093d91;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  footer .connect img {
+    margin: 40px 0;
+    width: 175px; }
+  footer .connect .social {
+    width: 100%;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-around; }
+    footer .connect .social h6 {
+      text-align: center;
+      width: 50%;
+      margin: 0;
+      padding-left: 25px;
+      font-size: 12px;
+      color: white;
+      font-weight: 600;
+      letter-spacing: 1px; }
+    footer .connect .social .social-icons {
+      width: 50%;
+      padding: 0 25px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center; }
+      footer .connect .social .social-icons i {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 18px; }
+
+footer .info {
+  background-color: #226bda;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+  width: 100%; }
+  footer .info .row {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    text-align: center; }
+    footer .info .row:nth-of-type(2) {
+      width: 95%; }
+    footer .info .row hr {
+      width: 1px;
+      height: 15px;
+      margin: 0 0;
+      border: none;
+      background-color: rgba(255, 255, 255, 0.7); }
+    footer .info .row i {
+      margin-left: 5px; }
+  footer .info hr {
+    margin: 0 auto;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: none;
+    width: 90%; }
+
+.email-modal {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  z-index: 100;
+  overflow-y: scroll; }
+  .email-modal .modal-header {
+    background-color: #093d91;
+    padding: 25px; }
+    .email-modal .modal-header h5, .email-modal .modal-header h6 {
+      margin: 0;
+      color: white; }
+    .email-modal .modal-header h6 {
+      font-size: 16px; }
+    .email-modal .modal-header h5 {
+      font-size: 26px;
+      width: 75%;
+      font-weight: lighter; }
+  .email-modal .fa-times {
+    color: white;
+    font-size: 22px;
+    position: absolute;
+    top: 15px;
+    left: calc(100vw - 50px); }
+  .email-modal .modal-form {
+    padding: 25px;
+    width: 100%; }
+    .email-modal .modal-form p {
+      margin: 0;
+      font-size: 14px; }
+    .email-modal .modal-form form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 25px; }
+      .email-modal .modal-form form label {
+        font-weight: bold;
+        font-size: 14px; }
+      .email-modal .modal-form form input {
+        width: 100%;
+        font-family: 'Open Sans', sans-serif;
+        padding: 10px;
+        font-size: 18px;
+        border: 1px solid rgba(0, 0, 0, 0.1); }
+      .email-modal .modal-form form #number {
+        width: 60%; }
+      .email-modal .modal-form form #zip {
+        width: 50%; }
+
 body {
   font-family: 'Open Sans', sans-serif;
   padding: 0;
@@ -309,7 +427,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  overflow-y: hidden; }
 
 a {
   text-decoration: none;

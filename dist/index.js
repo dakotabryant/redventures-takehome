@@ -16,7 +16,7 @@ let appState = {
     'Residential Pro',
     'Service Pro'
   ],
-  filteredDealers: []
+  currentDealer: ''
 };
 
 const stateEditingObject = {
@@ -42,15 +42,13 @@ const stateEditingObject = {
     if (appState.filters.includes(event.target.value)) {
       appState.filters = [...newFilters];
       renderObject.renderDealers(appState);
-      dealerNumber.innerHTML = `${document
-        .querySelectorAll('.card')
+      dealerNumber.innerHTML = `${document.querySelectorAll('.card')
         .length} dealers`;
       return;
     } else {
       appState.filters = [...appState.filters, event.target.value];
       renderObject.renderDealers(appState);
-      dealerNumber.innerHTML = `${document
-        .querySelectorAll('.card')
+      dealerNumber.innerHTML = `${document.querySelectorAll('.card')
         .length} dealers`;
       return;
     }
@@ -130,7 +128,7 @@ const renderObject = {
           <i class="phone-icon fa fa-phone"></i> Tap to call <span>${phone1}</span>
       </a>
       <i class="email" >Can't talk now? Click below to send an email.</i>
-      <a href="mailto:${email}" class="contact-pro">
+      <a class="contact-pro">
         <i class="fa fa-envelope"></i>Contact this Pro
       </a>
       <div class="hours">
@@ -143,6 +141,9 @@ const renderObject = {
       </div>`;
     });
     cardsParent.appendChild(newDealers);
+  },
+  renderEmail: function(state) {
+
   }
 };
 window.addEventListener('load', function() {

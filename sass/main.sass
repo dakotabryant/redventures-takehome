@@ -1,5 +1,6 @@
 *
   transition: ease-in-out .2s
+  box-sizing: border-box
 =desktop()
   @media screen and (min-width: 951px)
     @content
@@ -39,6 +40,8 @@ $blue-light: #46d6d6
 @import process
 @import dealers
 @import dealerCards
+@import footer
+@import emailModal
 
 
 
@@ -57,6 +60,7 @@ body
   flex-direction: column
   justify-content: center
   overflow-x: hidden
+  overflow-y: hidden
 
 a
   text-decoration: none
