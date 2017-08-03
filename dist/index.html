@@ -13,7 +13,7 @@
   <header>
     <img src="./images/logo.png" alt="" class="logo">
     <button type="" class="uppercase"><i class="fa fa-map-marker"></i>Find A Pro</button>
-    <div class="hamburger"><i class="fa fa-bars"></i></div>
+    <div id="hamburger" class="hamburger"><i class="fa fa-bars"></i></div>
   </header>
   <section class="hero-section">
     <h2>Is your pool ready for Summer?</h2>
@@ -95,28 +95,38 @@
       <h6>Loading Dealers</h6>
 
     </div>
-    <div class="email-modal">
+    <div class="email-modal hidden">
       <i class="fa fa-times"></i>
       <div class="modal-header">
         <h6 class="uppercase">Email</h6>
         <h5 id="email-title">Premium Pools & Spas of Charlotte</h5>
       </div>
       <div class="modal-form">
-        <p>Fill out the form below and Premium Pools & Spas of Charolotte will get in touch.</p>
-        <form>
-          <label for="name">First and last name</label>
-          <input type="text" id="name">
-          <label for="number">Phone Number</label>
-          <input type="text" id="number">
-          <label for="zip">Zip code</label>
-          <input type="text" id="zip">
-          <label for="email">First and last name</label>
-          <input type="text" id="email">
-          <label for="email">First and last name</label>
+        <p id="email-copy"></p>
+        <form id="my-form">
+          <label for="name">First and last name <span><i id="name-validate"class="validate fa fa-check-circle-o hidden"></i></span></label>
+          <input required type="text" id="name">
+          <label for="number">Phone Number<span><i id="phone-validate" class="validate fa fa-check-circle-o hidden"></i></span></label>
+          <input required type="text" id="number">
+          <label for="zip">Zip code<span><i id="zip-validate" class="validate fa fa-check-circle-o hidden"></i></span></label>
+          <input required type="text" id="zip">
+          <label for="email">Email address<span><i id="email-validate" class="validate fa fa-check-circle-o hidden"></i></span></label>
+          <input required type="email" id="email">
+          <label for="email">Comments or questions <span><i>optional</i></span></label>
           <textarea id="email"> </textarea>
+          <label>Do you currently own a pool or spa?</label>
+
           <label class="control control--checkbox">
-<input type="checkbox" checked="checked" value="Commercial Pro" />Commercial
-          <div class="control__indicator">
+            <input name="own" type="radio" checked="checked" value="Yes" />
+            Yes
+          </label>
+          <label for="">
+          <input name="own" type="radio" checked="checked" value="No" />
+          No
+            </label>
+          <div class="control__indicator"></div>
+          <hr>
+          <a class="send">Send</a>
         </form>
       </div>
     </div>

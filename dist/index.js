@@ -4,9 +4,25 @@ const dealerNumber = document.getElementById('dealer-number');
 const button = document.getElementsByClassName('button-container')[0];
 const filterContainer = document.getElementsByClassName('pop-up-filter')[0];
 const filters = document.querySelector('.pop-up-filter');
-const showFilters = () => {
-  filterContainer.classList.toggle('hidden');
-};
+const cardParent = document.getElementById('dealer-cards');
+const emailModal = document.getElementsByClassName('email-modal')[0];
+const closeModalButton = document.getElementsByClassName('fa-times')[0];
+const myForm = document.getElementById('my-form');
+const hamburger = document.getElementById('hamburer');
+
+function xss(text) {
+  try {
+    return text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/\"/g, '&quot;')
+      .replace(/\'/g, '&#39;');
+    //.replace(/\//g, '&frasl;')
+  } catch (e) {
+    return 'xss failure';
+  }
+}
 
 let appState = {
   dealers: [],
@@ -52,6 +68,19 @@ const stateEditingObject = {
         .length} dealers`;
       return;
     }
+  },
+  currentDealer: function(event) {
+    appState.currentDealer =
+      appState.dealers[parseInt(event.target.getAttribute('key'))];
+    console.log(appState);
+  },
+  composeEmail: function(data) {
+    opts = {
+      type: 'POST'
+    };
+    fetch('api/email', opts).then(data => {
+      alert('Email Sent');
+    });
   }
 };
 const renderObject = {
@@ -67,7 +96,7 @@ const renderObject = {
     newDealers.id = 'card-container';
     cardsParent.innerHTML = '';
 
-    state.dealers.map(dealer => {
+    state.dealers.map((dealer, index) => {
       const { certifications, weekHours, name, phone1, email } = dealer.data;
 
       if (!certifications.includes(...state.filters)) {
@@ -122,13 +151,15 @@ const renderObject = {
       });
 
       newDealers.innerHTML += `
-      <div class="card">
-      <h6 class="title">${name}</h6>
-      <a href="tel:${phone1}" class="call">
-          <i class="phone-icon fa fa-phone"></i> Tap to call <span>${phone1}</span>
+      <div class="card" >
+      <h6 class="title">${xss(name)}</h6>
+      <a href="tel:${xss(phone1)}" class="call">
+          <i class="phone-icon fa fa-phone"></i> Tap to call <span>${xss(
+            phone1
+          )}</span>
       </a>
       <i class="email" >Can't talk now? Click below to send an email.</i>
-      <a class="contact-pro">
+      <a class="contact-pro" key=${index}">
         <i class="fa fa-envelope"></i>Contact this Pro
       </a>
       <div class="hours">
@@ -143,6 +174,63 @@ const renderObject = {
     cardsParent.appendChild(newDealers);
   },
   renderEmail: function(state) {
+    const emailTitle = document.getElementById('email-title');
+    const emailText = document.getElementById('email-copy');
+    emailTitle.innerHTML = '';
+    emailText.innerHTML = '';
+    emailTitle.appendChild(
+      document.createTextNode(state.currentDealer.data.name)
+    );
+    emailText.appendChild(
+      document.createTextNode(
+        `Fill out the form below and ${state.currentDealer.data
+          .name} will get in touch.`
+      )
+    );
+  },
+  showFilters: function() {
+    filterContainer.classList.toggle('hidden');
+  },
+  showModal: function(e) {
+    if (!event.target.matches('.contact-pro')) return;
+    emailModal.classList.toggle('hidden');
+    document.body.classList.toggle('hide-scroll');
+    stateEditingObject.currentDealer(e);
+    renderObject.renderEmail(appState);
+  },
+  closeModal: function(e) {
+    emailModal.classList.toggle('hidden');
+    document.body.classList.toggle('hide-scroll');
+    appState.currentDealer = '';
+  },
+  validateForm: function(e) {
+    switch (e.target.id) {
+      case 'name':
+        if (e.target.value.length > 5 && typeof e.target.value === 'string') {
+          document.getElementById('name-validate').classList.remove('hidden');
+        }
+        break;
+      case 'number':
+        if (e.target.value.length >= 10 && typeof e.target.value !== 'NaN') {
+          document.getElementById('phone-validate').classList.remove('hidden');
+        }
+        break;
+      case 'zip':
+        if (e.target.value.length == 5 && typeof e.target.value !== 'NaN') {
+          document.getElementById('zip-validate').classList.remove('hidden');
+        }
+        break;
+      case 'email':
+        if (
+          e.target.value.includes('@' && '.com') &&
+          typeof e.target.value === 'string'
+        ) {
+          document.getElementById('email-validate').classList.remove('hidden');
+        }
+        break;
+    }
+  },
+  showMobileMenu: function(e) {
 
   }
 };
@@ -150,6 +238,9 @@ window.addEventListener('load', function() {
   stateEditingObject.getDealers('./data/dealers.json');
 });
 
-button.addEventListener('click', showFilters);
-
+button.addEventListener('click', renderObject.showFilters);
+cardParent.addEventListener('click', renderObject.showModal);
+closeModalButton.addEventListener('click', renderObject.closeModal);
 filters.addEventListener('change', stateEditingObject.filterDealers);
+myForm.addEventListener('change', renderObject.validateForm);
+hamburger.addEventListener('click', renderObject.showMobileMenu);

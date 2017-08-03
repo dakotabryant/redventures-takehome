@@ -25,14 +25,17 @@
 $blue: #226bda
 $blue-dark: #093d91
 $blue-light: #46d6d6
+$gray-light: rgba(black, .4)
+
 
 // Styling Classes
 
 .uppercase
   text-transform: uppercase
 .hidden
-  display: none
-
+  display: none !important
+.hide-scroll
+  overflow-y: hidden
 // CSS imports
 
 @import header
@@ -60,7 +63,7 @@ body
   flex-direction: column
   justify-content: center
   overflow-x: hidden
-  overflow-y: hidden
+  // overflow-y: hidden
 
 a
   text-decoration: none
