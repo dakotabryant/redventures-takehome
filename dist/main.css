@@ -213,6 +213,9 @@ header {
             height: 7px;
             background-color: white; }
 
+#card-container {
+  width: 100%; }
+
 #dealer-cards {
   display: flex;
   flex-direction: column;
@@ -223,25 +226,29 @@ header {
     align-items: center;
     flex-direction: column;
     padding-top: 40px;
-    text-align: center; }
+    text-align: center;
+    width: 100%; }
     #dealer-cards .card h6 {
       font-size: 22px;
       font-weight: normal;
-      margin: 0 0 15px 0; }
+      margin: 0 0 15px 0;
+      width: 80%; }
     #dealer-cards .card .hours {
-      text-align: center; }
+      text-align: center;
+      margin: 15px 0; }
       #dealer-cards .card .hours h6 {
         font-weight: bold;
         font-size: 14px;
-        margin: 0; }
+        margin: 0 0 5px 0; }
       #dealer-cards .card .hours p {
         font-size: 14px;
-        margin: 0; }
+        margin: 0 0 5px 0; }
     #dealer-cards .card .call {
       font-family: 'Open Sans', sans-serif;
       border: 1px solid #226bda;
       border-radius: 2px;
       padding: 5px 5px;
+      padding-left: 0;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -254,9 +261,45 @@ header {
         margin-left: 5px;
         margin-right: 5px;
         font-size: 18px; }
+      #dealer-cards .card .call i {
+        font-size: 16px;
+        margin: 0 5px;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #093d91; }
+    #dealer-cards .card .contact-pro {
+      color: #093d91;
+      font-weight: 800;
+      border: 2px solid #46d6d6;
+      border-radius: 5px;
+      padding: 10px 25px; }
+      #dealer-cards .card .contact-pro i {
+        margin-right: 15px; }
     #dealer-cards .card .email {
       font-size: 12px;
       margin: 15px 0; }
+    #dealer-cards .card .card-bottom {
+      background-color: #e6e6e6;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      padding: 25px 0; }
+      #dealer-cards .card .card-bottom .pro-container {
+        width: 35%; }
+        #dealer-cards .card .card-bottom .pro-container p {
+          display: flex;
+          align-items: center;
+          font-size: 12px;
+          width: 100%;
+          margin: 5px auto; }
+          #dealer-cards .card .card-bottom .pro-container p i {
+            margin-right: 10px;
+            color: rgba(0, 0, 0, 0.4); }
 
 body {
   font-family: 'Open Sans', sans-serif;

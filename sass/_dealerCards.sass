@@ -1,3 +1,5 @@
+#card-container
+  width: 100%
 #dealer-cards
   display: flex
   flex-direction: column
@@ -9,25 +11,29 @@
     flex-direction: column
     padding-top: 40px
     text-align: center
+    width: 100%
     h6
       font-size: 22px
       font-weight: normal
       margin: 0 0 15px 0 
+      width: 80%
 
     .hours
       text-align: center
+      margin: 15px 0
       h6
         font-weight: bold
         font-size: 14px
-        margin: 0
+        margin: 0 0 5px 0
       p
         font-size: 14px
-        margin: 0
+        margin: 0 0 5px 0
     .call
       font-family: 'Open Sans', sans-serif
       border: 1px solid $blue
       border-radius: 2px
       padding: 5px 5px
+      padding-left: 0
       display: flex
       justify-content: center
       align-items: center
@@ -40,6 +46,42 @@
         margin-left: 5px
         margin-right: 5px
         font-size: 18px
+      i
+        font-size: 16px
+        margin: 0 5px
+        width: 30px
+        height: 30px
+        display: flex
+        justify-content: center
+        align-items: center
+        background-color: $blue-dark
+    .contact-pro
+      color: $blue-dark
+      font-weight: 800
+      border: 2px solid $blue-light
+      border-radius: 5px
+      padding: 10px 25px
+      i
+        margin-right: 15px
     .email
       font-size: 12px
       margin: 15px 0
+    .card-bottom
+      background-color: #e6e6e6
+      width: 100%
+      display: flex
+      flex-wrap: wrap
+      justify-content: space-around
+      align-items: center
+      padding: 25px 0
+      .pro-container
+        width: 35%
+        p
+          display: flex
+          align-items: center
+          font-size: 12px
+          width: 100%
+          margin: 5px auto
+          i
+            margin-right: 10px
+            color: rgba(black, .4)

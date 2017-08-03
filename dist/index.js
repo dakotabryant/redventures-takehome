@@ -3,7 +3,7 @@
 const dealerNumber = document.getElementById('dealer-number');
 const button = document.getElementsByClassName('button-container')[0];
 const filterContainer = document.getElementsByClassName('pop-up-filter')[0];
-const filters = document.querySelectorAll('input');
+const filters = document.querySelector('.pop-up-filter');
 const showFilters = () => {
   filterContainer.classList.toggle('hidden');
 };
@@ -11,10 +11,10 @@ const showFilters = () => {
 let appState = {
   dealers: [],
   filters: [
-    'Service Pro',
     'Installation Pro',
+    'Commercial Pro',
     'Residential Pro',
-    'Commercial Pro'
+    'Service Pro'
   ],
   filteredDealers: []
 };
@@ -34,19 +34,24 @@ const stateEditingObject = {
         renderObject.renderDealers(this.state);
       });
   },
-  filterDealers: function(e) {
+  filterDealers: function(event) {
+    if (!event.target.matches('input')) return;
     let newFilters = appState.filters.filter(word => {
       return word !== event.target.value;
     });
     if (appState.filters.includes(event.target.value)) {
       appState.filters = [...newFilters];
-      dealerNumber.innerHTML = `${appState.filteredDealers.length} dealers`;
       renderObject.renderDealers(appState);
+      dealerNumber.innerHTML = `${document
+        .querySelectorAll('.card')
+        .length} dealers`;
       return;
     } else {
       appState.filters = [...appState.filters, event.target.value];
-      dealerNumber.innerHTML = `${appState.filteredDealers.length} dealers`;
       renderObject.renderDealers(appState);
+      dealerNumber.innerHTML = `${document
+        .querySelectorAll('.card')
+        .length} dealers`;
       return;
     }
   }
@@ -59,6 +64,7 @@ const renderObject = {
     let newDealers = document.createElement('div');
     let certificationContent;
     let businessHours;
+    let certificationIcon;
 
     newDealers.id = 'card-container';
     cardsParent.innerHTML = '';
@@ -66,18 +72,30 @@ const renderObject = {
     state.dealers.map(dealer => {
       const { certifications, weekHours, name, phone1, email } = dealer.data;
 
-      // if (!certifications.includes(...state.filters)) {
-      //   console.log(certifications)
-      //   return;
-      // }
+      if (!certifications.includes(...state.filters)) {
+        return;
+      }
       certificationContent = '';
       certifications.forEach(certification => {
-        certificationContent += `<p>${certification}</p>`;
+        switch (certification) {
+          case 'Service Pro':
+            certificationIcon = 'fa-cog';
+            break;
+          case 'Installation Pro':
+            certificationIcon = 'fa-star';
+            break;
+          case 'Residential Pro':
+            certificationIcon = 'fa-home';
+            break;
+          case 'Commercial Pro':
+            certificationIcon = 'fa-users';
+            break;
+        }
+        certificationContent += `<div class="pro-container"><p><i class="fa ${certificationIcon}"></i>${certification}</p></div>`;
       });
       businessHours = '';
       Object.keys(weekHours).forEach(key => {
         if (businessHours.includes('Weekdays')) {
-          console.log('weekday');
         }
         let keyText;
         let hoursText;
@@ -109,11 +127,11 @@ const renderObject = {
       <div class="card">
       <h6 class="title">${name}</h6>
       <a href="tel:${phone1}" class="call">
-          <i class="phone-icon"></i> Tap to call <span>${phone1}</span>
+          <i class="phone-icon fa fa-phone"></i> Tap to call <span>${phone1}</span>
       </a>
       <i class="email" >Can't talk now? Click below to send an email.</i>
       <a href="mailto:${email}" class="contact-pro">
-      Contact this Pro
+        <i class="fa fa-envelope"></i>Contact this Pro
       </a>
       <div class="hours">
         <h6>Business Hours</h6>
@@ -133,4 +151,4 @@ window.addEventListener('load', function() {
 
 button.addEventListener('click', showFilters);
 
-filters[0].addEventListener('change', stateEditingObject.filterDealers);
+filters.addEventListener('change', stateEditingObject.filterDealers);
