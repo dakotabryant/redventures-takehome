@@ -128,7 +128,8 @@ header {
 .process {
   padding: 30px 15px;
   position: relative;
-  padding-bottom: 0; }
+  padding-bottom: 0;
+  overflow-x: hidden; }
   @media screen and (min-width: 951px) {
     .process {
       display: flex;
@@ -456,10 +457,13 @@ footer .connect {
     margin: 40px 0;
     width: 175px; }
   footer .connect .social {
-    width: 25%;
+    width: 100%;
     margin-bottom: 30px;
     display: flex;
     justify-content: space-around; }
+    @media screen and (min-width: 951px) {
+      footer .connect .social {
+        width: 25%; } }
     footer .connect .social h6 {
       text-align: center;
       width: 50%;
@@ -489,10 +493,16 @@ footer .info {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 20%;
+    width: 90%;
     text-align: center; }
+    @media screen and (min-width: 951px) {
+      footer .info .row {
+        width: 20%; } }
     footer .info .row:nth-of-type(2) {
-      width: 25%; }
+      width: 95%; }
+      @media screen and (min-width: 951px) {
+        footer .info .row:nth-of-type(2) {
+          width: 25%; } }
     @media screen and (min-width: 951px) {
       footer .info .row:first-of-type {
         display: none; } }
