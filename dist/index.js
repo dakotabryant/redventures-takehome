@@ -55,28 +55,28 @@
           renderObject.renderDealers(this.state);
         });
     },
-    filterDealers: function(event) {
-      if (!event.target.matches('input')) return;
+    filterDealers: function(e) {
+      if (!e.target.matches('input')) return;
       let newFilters = appState.filters.filter(word => {
-        return word !== event.target.value;
+        return word !== e.target.value;
       });
-      if (appState.filters.includes(event.target.value)) {
+      if (appState.filters.includes(e.target.value)) {
         appState.filters = [...newFilters];
         renderObject.renderDealers(appState);
         dealerNumber.innerHTML = `${document.querySelectorAll('.card')
           .length} dealers`;
         return;
       } else {
-        appState.filters = [...appState.filters, event.target.value];
+        appState.filters = [...appState.filters, e.target.value];
         renderObject.renderDealers(appState);
         dealerNumber.innerHTML = `${document.querySelectorAll('.card')
           .length} dealers`;
         return;
       }
     },
-    currentDealer: function(event) {
+    currentDealer: function(e) {
       appState.currentDealer =
-        appState.dealers[parseInt(event.target.getAttribute('key'))];
+        appState.dealers[parseInt(e.target.getAttribute('key'))];
       console.log(appState);
     },
     composeEmail: function(data) {
@@ -126,9 +126,8 @@
           certificationContent += `<div class="pro-container"><p><i class="fa ${certificationIcon}"></i>${certification}</p></div>`;
         });
         businessHours = '';
+            let i = 0;
         Object.keys(weekHours).forEach(key => {
-          if (businessHours.includes('Weekdays')) {
-          }
           let keyText;
           let hoursText;
           weekHours[key] == ''
@@ -136,10 +135,6 @@
             : (hoursText = weekHours[key]);
           switch (key) {
             case 'mon':
-            case 'tue':
-            case 'wed':
-            case 'thu':
-            case 'fri':
               keyText = 'Weekdays';
               break;
             case 'sat':
@@ -197,7 +192,7 @@
       filterContainer.classList.toggle('hidden');
     },
     showModal: function(e) {
-      if (!event.target.matches('.contact-pro')) return;
+      if (!e.target.matches('.contact-pro')) return;
       emailModal.classList.toggle('hidden');
       document.body.classList.toggle('hide-scroll');
       stateEditingObject.currentDealer(e);
@@ -251,9 +246,9 @@
     },
     expandMenu: function(e) {
       const menus = document.querySelectorAll('.menu-container');
-      if (!event.target.matches('.accordion')) return;
+      if (!e.target.matches('.accordion')) return;
       if (window.innerWidth > 950) {
-        if (!event.target.classList.contains('active')) {
+        if (!e.target.classList.contains('active')) {
           menus.forEach(menu => {
             if (menu.firstElementChild.classList.contains('active')) {
               menu.firstElementChild.classList.remove('active');
@@ -264,9 +259,9 @@
           });
         }
 
-        event.target.classList.toggle('active');
+        e.target.classList.toggle('active');
       }
-      event.target.nextElementSibling.classList.toggle('hidden');
+      e.target.nextElementSibling.classList.toggle('hidden');
     }
   };
   window.addEventListener('load', function() {
