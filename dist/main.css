@@ -422,9 +422,9 @@ header {
       width: 100%;
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-around;
       align-items: center;
-      padding: 25px 0; }
+      padding: 25px 0;
+      padding-left: 10%; }
       @media screen and (min-width: 951px) {
         #dealer-cards .card .card-bottom {
           justify-content: flex-start;
@@ -433,7 +433,7 @@ header {
           border-bottom-left-radius: 3px;
           border-bottom-right-radius: 3px; } }
       #dealer-cards .card .card-bottom .pro-container {
-        width: 35%; }
+        width: 50%; }
         @media screen and (min-width: 951px) {
           #dealer-cards .card .card-bottom .pro-container {
             width: 50%; } }
@@ -648,25 +648,29 @@ footer .info {
         height: 1px;
         border: none;
         background-color: rgba(0, 0, 0, 0.4); }
-      .email-modal .modal-form form .send {
+      .email-modal .modal-form form #send {
         color: #46d6d6;
         font-weight: 800;
         cursor: pointer;
         margin: 25px 0;
         margin-left: auto; }
         @media screen and (min-width: 951px) {
-          .email-modal .modal-form form .send {
+          .email-modal .modal-form form #send {
             margin: 25px auto;
             color: black; } }
-        .email-modal .modal-form form .send #send-email {
+        .email-modal .modal-form form #send #send-email {
           display: none; }
           @media screen and (min-width: 951px) {
-            .email-modal .modal-form form .send #send-email {
+            .email-modal .modal-form form #send #send-email {
               display: initial; } }
+          .email-modal .modal-form form #send #send-email i {
+            color: #46d6d6;
+            margin-left: 5px; }
   .email-modal .email-disclaimer {
-    display: hidden; }
+    display: none; }
     @media screen and (min-width: 951px) {
       .email-modal .email-disclaimer {
+        display: initial;
         background-color: #e6e6e6;
         margin-top: auto;
         padding: 0px 25px; } }

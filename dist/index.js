@@ -14,6 +14,7 @@
   const menuContainer = document.querySelector('.mobile-nav');
   const panel = document.querySelector('.nav-items');
   const overlay = document.getElementById('overlay');
+  const send = document.getElementById('send')
   function xss(text) {
     try {
       return text
@@ -280,4 +281,5 @@
   hamburger.addEventListener('click', renderObject.showMobileMenu);
   closeMenuButton.addEventListener('click', renderObject.closeMobileMenu);
   menuContainer.addEventListener('click', renderObject.expandMenu);
+  send.addEventListener('click', renderObject.closeModal);
 })();

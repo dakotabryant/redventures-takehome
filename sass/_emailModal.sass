@@ -122,7 +122,7 @@
         height: 1px
         border: none
         background-color: $gray-light
-      .send
+      #send
         color: $blue-light
         font-weight: 800
         cursor: pointer
@@ -135,10 +135,14 @@
           display: none
           +desktop()
             display: initial
+          i
+            color: $blue-light
+            margin-left: 5px
 
   .email-disclaimer
-    display: hidden
+    display: none
     +desktop()
+      display: initial
       background-color: $gray-white
       margin-top: auto
       padding: 0px 25px
