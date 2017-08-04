@@ -599,6 +599,46 @@ footer .info {
       .email-modal .modal-form form textarea {
         margin-bottom: 15px;
         resize: vertical; }
+      .email-modal .modal-form form .custom-inputs {
+        display: flex; }
+        .email-modal .modal-form form .custom-inputs .control {
+          position: relative;
+          display: block;
+          padding-left: 40px;
+          margin-right: 25px;
+          cursor: pointer; }
+          .email-modal .modal-form form .custom-inputs .control input {
+            position: absolute;
+            z-index: -1;
+            opacity: 0; }
+          .email-modal .modal-form form .custom-inputs .control .control__indicator {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 25px;
+            height: 25px;
+            background: #e6e6e6; }
+            @media screen and (min-width: 951px) {
+              .email-modal .modal-form form .custom-inputs .control .control__indicator {
+                border: 1px solid black; } }
+            .email-modal .modal-form form .custom-inputs .control .control__indicator:hover {
+              background: #ccc; }
+            .email-modal .modal-form form .custom-inputs .control .control__indicator:after {
+              position: absolute;
+              display: none;
+              content: ''; }
+        .email-modal .modal-form form .custom-inputs .control input:checked ~ .control__indicator {
+          background-color: #226bda; }
+          .email-modal .modal-form form .custom-inputs .control input:checked ~ .control__indicator:after {
+            display: block; }
+        .email-modal .modal-form form .custom-inputs .control--radio .control__indicator {
+          display: flex;
+          justify-content: center;
+          align-items: center; }
+          .email-modal .modal-form form .custom-inputs .control--radio .control__indicator:after {
+            width: 7px;
+            height: 7px;
+            background-color: white; }
       .email-modal .modal-form form #number {
         width: 60%; }
       .email-modal .modal-form form #zip {
@@ -614,6 +654,15 @@ footer .info {
         cursor: pointer;
         margin: 25px 0;
         margin-left: auto; }
+        @media screen and (min-width: 951px) {
+          .email-modal .modal-form form .send {
+            margin: 25px auto;
+            color: black; } }
+        .email-modal .modal-form form .send #send-email {
+          display: none; }
+          @media screen and (min-width: 951px) {
+            .email-modal .modal-form form .send #send-email {
+              display: initial; } }
   .email-modal .email-disclaimer {
     display: hidden; }
     @media screen and (min-width: 951px) {

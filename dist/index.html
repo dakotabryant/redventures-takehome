@@ -188,18 +188,19 @@
           <label for="email">Comments or questions <span><i>optional</i></span></label>
           <textarea id="email"> </textarea>
           <label>Do you currently own a pool or spa?</label>
+          <div class="custom-inputs">
 
-          <label class="control control--checkbox">
-            <input name="own" type="radio" checked="checked" value="Yes" />
-            Yes
-          </label>
-          <label for="">
-          <input name="own" type="radio" checked="checked" value="No" />
-          No
-            </label>
-          <div class="control__indicator"></div>
+            <label class="control control--radio">Yes
+		<input type="radio" name="radio" checked="checked"/>
+		<div class="control__indicator"></div>
+	</label>
+            <label class="control control--radio">No
+		<input type="radio" name="radio"/>
+		<div class="control__indicator"></div>
+	</label>
+          </div>
           <hr>
-          <a class="send">Send</a>
+          <a class="send">Send <span id="send-email">my email <i></i></span></a>
         </form>
       </div>
       <div class="email-disclaimer">
@@ -234,7 +235,7 @@
       <div class="row">
         <p>&copy; 2017 Pool Pros</p>
         <hr>
-        <p>Privacty Policy</p>
+        <p>Privacy Policy</p>
         <hr>
         <p>Terms and Conditions</p>
       </div>

@@ -72,6 +72,47 @@
       textarea
         margin-bottom: 15px
         resize: vertical
+      .custom-inputs
+        display: flex
+        .control
+          position: relative
+          display: block
+          padding-left: 40px
+          margin-right: 25px
+          cursor: pointer
+          input
+            position: absolute
+            z-index: -1
+            opacity: 0
+          .control__indicator
+            position: absolute
+            top: 0
+            left: 0
+            width: 25px
+            height: 25px
+            background: #e6e6e6
+            +desktop()
+              border: 1px solid black
+            &:hover
+              background: #ccc
+            &:after
+              position: absolute
+              display: none
+              content: ''
+        .control input:checked ~ .control__indicator
+          background-color: $blue
+          &:after
+            display: block
+        .control--radio
+          .control__indicator
+            display: flex
+            justify-content: center
+            align-items: center
+            &:after
+              width: 7px
+              height: 7px
+              background-color: white
+
       #number
         width: 60%
       #zip
@@ -87,6 +128,13 @@
         cursor: pointer
         margin: 25px 0
         margin-left: auto
+        +desktop()
+          margin: 25px auto
+          color: black
+        #send-email
+          display: none
+          +desktop()
+            display: initial
 
   .email-disclaimer
     display: hidden
