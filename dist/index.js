@@ -12,8 +12,8 @@
   const hamburger = document.getElementById('hamburger');
   const menu = document.getElementById('menu');
   const menuContainer = document.querySelector('.mobile-nav');
-
-  console.log(menuContainer);
+  const panel = document.querySelector('.nav-items');
+  const overlay = document.getElementById('overlay');
   function xss(text) {
     try {
       return text
@@ -201,11 +201,13 @@
       document.body.classList.toggle('hide-scroll');
       stateEditingObject.currentDealer(e);
       renderObject.renderEmail(appState);
+      overlay.classList.remove('hidden')
     },
     closeModal: function(e) {
       emailModal.classList.toggle('hidden');
       document.body.classList.toggle('hide-scroll');
       appState.currentDealer = '';
+      overlay.classList.add('hidden')
     },
     validateForm: function(e) {
       switch (e.target.id) {
@@ -247,7 +249,22 @@
       document.body.classList.toggle('hide-scroll');
     },
     expandMenu: function(e) {
+      const menus = document.querySelectorAll('.menu-container');
       if (!event.target.matches('.accordion')) return;
+      if (window.innerWidth > 950) {
+        if (!event.target.classList.contains('active')) {
+          menus.forEach(menu => {
+            if (menu.firstElementChild.classList.contains('active')) {
+              menu.firstElementChild.classList.remove('active');
+              menu.firstElementChild.nextElementSibling.classList.toggle(
+                'hidden'
+              );
+            }
+          });
+        }
+
+        event.target.classList.toggle('active');
+      }
       event.target.nextElementSibling.classList.toggle('hidden');
     }
   };

@@ -6,6 +6,12 @@
   background-color: white
   z-index: 100
   overflow-y: scroll
+  display: flex
+  flex-direction: column
+  +desktop()
+    width: 50%
+    left: 25%
+    overflow: hidden
   .modal-header
     background-color: $blue-dark
     padding: 25px
@@ -25,17 +31,25 @@
     top: 15px
     left: calc(100vw - 50px)
     cursor: pointer
+    +desktop()
+      left: initial
+      right: 5%
   .modal-form
     padding: 25px
     width: 100%
+    +desktop()
     p
       margin: 0
       font-size: 14px
+
     form
       display: flex
       flex-direction: column
       justify-content: center
       margin-top: 25px
+      +desktop()
+        background-color: $gray-white
+        padding: 25px
       label
         font-weight: bold
         font-size: 14px
@@ -73,3 +87,10 @@
         cursor: pointer
         margin: 25px 0
         margin-left: auto
+
+  .email-disclaimer
+    display: hidden
+    +desktop()
+      background-color: $gray-white
+      margin-top: auto
+      padding: 0px 25px

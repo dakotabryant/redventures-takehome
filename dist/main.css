@@ -520,6 +520,9 @@ footer .info {
     background-color: rgba(255, 255, 255, 0.4);
     border: none;
     width: 90%; }
+  @media screen and (min-width: 951px) {
+    footer .info #top-hr {
+      display: none; } }
 
 .email-modal {
   height: 100vh;
@@ -528,7 +531,14 @@ footer .info {
   left: 0;
   background-color: white;
   z-index: 100;
-  overflow-y: scroll; }
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column; }
+  @media screen and (min-width: 951px) {
+    .email-modal {
+      width: 50%;
+      left: 25%;
+      overflow: hidden; } }
   .email-modal .modal-header {
     background-color: #093d91;
     padding: 25px; }
@@ -548,6 +558,10 @@ footer .info {
     top: 15px;
     left: calc(100vw - 50px);
     cursor: pointer; }
+    @media screen and (min-width: 951px) {
+      .email-modal .fa-times {
+        left: initial;
+        right: 5%; } }
   .email-modal .modal-form {
     padding: 25px;
     width: 100%; }
@@ -559,6 +573,10 @@ footer .info {
       flex-direction: column;
       justify-content: center;
       margin-top: 25px; }
+      @media screen and (min-width: 951px) {
+        .email-modal .modal-form form {
+          background-color: #e6e6e6;
+          padding: 25px; } }
       .email-modal .modal-form form label {
         font-weight: bold;
         font-size: 14px;
@@ -596,6 +614,13 @@ footer .info {
         cursor: pointer;
         margin: 25px 0;
         margin-left: auto; }
+  .email-modal .email-disclaimer {
+    display: hidden; }
+    @media screen and (min-width: 951px) {
+      .email-modal .email-disclaimer {
+        background-color: #e6e6e6;
+        margin-top: auto;
+        padding: 0px 25px; } }
 
 .mobile-nav {
   width: 100%;
@@ -637,6 +662,9 @@ footer .info {
         display: none; } }
   .mobile-nav .menu-container {
     width: 100%; }
+    @media screen and (min-width: 951px) {
+      .mobile-nav .menu-container {
+        position: relative; } }
     .mobile-nav .menu-container .accordion {
       display: flex;
       justify-content: flex-start;
@@ -653,9 +681,11 @@ footer .info {
       outline: none;
       margin-bottom: 3px; }
       .mobile-nav .menu-container .accordion:hover {
-        background-color: rgba(0, 0, 0, 0.4); }
+        background-color: rgba(0, 0, 0, 0.4);
+        background-color: #e6e6e6; }
       @media screen and (min-width: 951px) {
         .mobile-nav .menu-container .accordion {
+          justify-content: center;
           font-size: 14px;
           color: #093d91;
           font-weight: 800 !important;
@@ -672,8 +702,10 @@ footer .info {
         margin-right: 25px; }
         @media screen and (min-width: 951px) {
           .mobile-nav .menu-container .accordion i {
-            margin-right: 15px;
-            margin-left: auto; } }
+            margin: 0 15px 10px 10px; } }
+    .mobile-nav .menu-container .active {
+      border-top: 5px solid #46d6d6;
+      background-color: #e6e6e6; }
     .mobile-nav .menu-container:nth-of-type(4) .accordion {
       margin-bottom: 0px !important; }
     .mobile-nav .menu-container .panel {
@@ -682,6 +714,16 @@ footer .info {
       text-indent: 0;
       padding: 0;
       padding-left: 25px; }
+      @media screen and (min-width: 951px) {
+        .mobile-nav .menu-container .panel {
+          width: 300%;
+          left: -100%;
+          position: absolute;
+          background-color: white;
+          margin: 0;
+          background-color: #e6e6e6;
+          border-bottom: 5px solid #46d6d6;
+          padding: 50px; } }
       .mobile-nav .menu-container .panel li {
         display: flex;
         width: 50%;
@@ -689,6 +731,12 @@ footer .info {
         color: #46d6d6;
         list-style: none;
         cursor: pointer; }
+        @media screen and (min-width: 951px) {
+          .mobile-nav .menu-container .panel li {
+            margin: 15px 0;
+            width: 50%;
+            color: black;
+            font-weight: 400; } }
 
 body {
   font-family: 'Open Sans', sans-serif;
@@ -713,6 +761,19 @@ body {
         margin: 15px 15px; }
         .disclaimer p:nth-of-type(2) {
           margin-right: 50px; } }
+
+#overlay {
+  display: none; }
+  @media screen and (min-width: 951px) {
+    #overlay {
+      display: initial;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 1; } }
 
 a {
   text-decoration: none;

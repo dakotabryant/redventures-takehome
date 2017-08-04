@@ -35,6 +35,8 @@
       display: none
   .menu-container
     width: 100%
+    +desktop()
+      position: relative
     
     .accordion
       display: flex
@@ -53,7 +55,10 @@
       margin-bottom: 3px
       &:hover
         background-color: $gray-light
+        +desktop()
+        background-color: $gray-white
       +desktop()
+        justify-content: center
         font-size: 14px
         color: $blue-dark
         font-weight: 800 !important
@@ -69,9 +74,10 @@
         margin-left: auto
         margin-right: 25px
         +desktop()
-          margin-right: 15px
-          margin-left: auto
-
+          margin: 0 15px 10px 10px
+    .active
+      border-top: 5px solid $blue-light
+      background-color: $gray-white
     &:nth-of-type(4)
       .accordion
         margin-bottom: 0px !important
@@ -81,6 +87,15 @@
       text-indent: 0
       padding: 0
       padding-left: 25px
+      +desktop()
+        width: 300%
+        left: -100%
+        position: absolute
+        background-color: white
+        margin: 0
+        background-color: $gray-white
+        border-bottom: 5px solid $blue-light
+        padding: 50px
       li
         display: flex
         width: 50%
@@ -88,3 +103,9 @@
         color: $blue-light
         list-style: none
         cursor: pointer
+        +desktop()
+          margin: 15px 0
+          width: 50%
+          color: black
+          font-weight: 400
+          
