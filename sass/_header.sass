@@ -5,13 +5,27 @@ header
   align-items: center
   padding: 
   box-shadow: 3px 2px 12px -2px rgba(black, .1 )
-
+  +desktop()
+    height: auto
+  .logo-container
+    display: flex
+    align-items: center
+    +desktop()
+      padding-left: 50px
+      flex: 2
   .logo
     width: 155px
     margin: auto 20px auto 10px 
     +small-mobile()
       margin-right: 15px
       width: 115px
+    +desktop()
+      width: 200px
+  #pool-word
+    display: none
+    +desktop()
+      display: block
+      margin: 0 5px
   button
     font-size: 14px
     width: 110px
@@ -20,6 +34,10 @@ header
     +small-mobile()
       margin-right: 45px
       font-size: 12px
+    +desktop()
+      width: auto
+    +laptop()
+      margin-right: 25px
     i
       font-size: 16px !important
       margin-right: 5px

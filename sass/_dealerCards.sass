@@ -1,9 +1,15 @@
 #card-container
   width: 100%
+  +desktop()
+    display: flex
+    justify-content: center
+    flex-wrap: wrap
 #dealer-cards
   display: flex
   flex-direction: column
   align-items: center
+  +desktop()
+    flex-direction: row
   .card
     display: flex
     justify-content: center
@@ -12,11 +18,25 @@
     padding-top: 40px
     text-align: center
     width: 100%
+    +desktop()
+      width: 450px
+      margin: 25px
+      border-radius: 3px
+      box-shadow: 0px 0px 4px 2px rgba(0,0,0,0.25)
+      padding-top: 0
+    +laptop()
+      width: 400px
     h6
       font-size: 22px
       font-weight: normal
       margin: 0 0 15px 0 
       width: 80%
+      +desktop()
+        margin: 0
+        height: 65px
+        margin-top: 50px
+        border-bottom: 1px solid $gray-white
+        margin-bottom: 30px
 
     .hours
       text-align: center
@@ -29,6 +49,9 @@
         font-weight: bold
         font-size: 14px
         margin: 0 0 5px 0
+        +desktop()
+          height: auto
+          border: none
         
       p
         font-size: 14px
@@ -47,10 +70,17 @@
       color: white
       font-size: 10px
       font-weight: bold
-      span
+      +desktop()
+        background-color: transparent
+        color: black
+        border: none
+      #phone-tap
         margin-left: 5px
         margin-right: 5px
         font-size: 18px
+      #tap
+        +desktop()
+          display: none
       i
         font-size: 16px
         margin: 0 5px
@@ -60,6 +90,10 @@
         justify-content: center
         align-items: center
         background-color: $blue-dark
+        +desktop()
+          color: white
+          background-color: $blue
+          border-radius: 100%
     .contact-pro
       color: $blue-dark
       font-weight: 800
@@ -80,8 +114,16 @@
       justify-content: space-around
       align-items: center
       padding: 25px 0
+      +desktop()
+        justify-content: flex-start
+        padding-left: 15%
+        min-height: 104px
+        border-bottom-left-radius: 3px 
+        border-bottom-right-radius: 3px
       .pro-container
         width: 35%
+        +desktop()
+          width: 50%
         p
           display: flex
           align-items: center

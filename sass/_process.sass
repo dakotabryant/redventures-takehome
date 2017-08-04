@@ -2,6 +2,11 @@
   padding: 30px 15px
   position: relative
   padding-bottom: 0
+  +desktop()
+    display: flex
+    align-items: center
+    justify-content: space-around
+    flex-wrap: wrap
   .number-block
     display: flex
     justify-content: center
@@ -14,6 +19,10 @@
       padding-top: 0
     &:nth-of-type(3)
       border-bottom: none !important
+    +desktop()
+      width: 25%
+      border: none
+      padding: 0
     .circle
       min-width: 50px
       height: 50px
@@ -26,6 +35,9 @@
       color: $blue-light
       font-weight: 700
       font-size: 36px
+      +desktop()
+        min-width: 75px
+        height: 75px
     h6
       font-size: 16px
       color: $blue-dark

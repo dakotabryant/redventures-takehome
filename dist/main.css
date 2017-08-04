@@ -18,6 +18,16 @@ header {
   display: flex;
   align-items: center;
   box-shadow: 3px 2px 12px -2px rgba(0, 0, 0, 0.1); }
+  @media screen and (min-width: 951px) {
+    header {
+      height: auto; } }
+  header .logo-container {
+    display: flex;
+    align-items: center; }
+    @media screen and (min-width: 951px) {
+      header .logo-container {
+        padding-left: 50px;
+        flex: 2; } }
   header .logo {
     width: 155px;
     margin: auto 20px auto 10px; }
@@ -25,6 +35,15 @@ header {
       header .logo {
         margin-right: 15px;
         width: 115px; } }
+    @media screen and (min-width: 951px) {
+      header .logo {
+        width: 200px; } }
+  header #pool-word {
+    display: none; }
+    @media screen and (min-width: 951px) {
+      header #pool-word {
+        display: block;
+        margin: 0 5px; } }
   header button {
     font-size: 14px;
     width: 110px;
@@ -34,6 +53,12 @@ header {
       header button {
         margin-right: 45px;
         font-size: 12px; } }
+    @media screen and (min-width: 951px) {
+      header button {
+        width: auto; } }
+    @media screen and (min-width: 951px) and (max-width: 1412px) {
+      header button {
+        margin-right: 25px; } }
     header button i {
       font-size: 16px !important;
       margin-right: 5px; }
@@ -71,6 +96,9 @@ header {
       background-image: url("../images/hero-image.png"); } }
   .hero-section h2, .hero-section h3, .hero-section hr {
     margin: 0 auto 50px auto; }
+    @media screen and (min-width: 951px) {
+      .hero-section h2, .hero-section h3, .hero-section hr {
+        text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7); } }
   .hero-section h2 {
     font-size: 32px;
     color: white;
@@ -87,6 +115,9 @@ header {
     height: 2px;
     border: none;
     background-color: white; }
+    @media screen and (min-width: 951px) {
+      .hero-section hr {
+        width: 10%; } }
   .hero-section p {
     color: white;
     font-size: 14px;
@@ -98,6 +129,12 @@ header {
   padding: 30px 15px;
   position: relative;
   padding-bottom: 0; }
+  @media screen and (min-width: 951px) {
+    .process {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-wrap: wrap; } }
   .process .number-block {
     display: flex;
     justify-content: center;
@@ -110,6 +147,11 @@ header {
       padding-top: 0; }
     .process .number-block:nth-of-type(3) {
       border-bottom: none !important; }
+    @media screen and (min-width: 951px) {
+      .process .number-block {
+        width: 25%;
+        border: none;
+        padding: 0; } }
     .process .number-block .circle {
       min-width: 50px;
       height: 50px;
@@ -122,6 +164,10 @@ header {
       color: #46d6d6;
       font-weight: 700;
       font-size: 36px; }
+      @media screen and (min-width: 951px) {
+        .process .number-block .circle {
+          min-width: 75px;
+          height: 75px; } }
     .process .number-block h6 {
       font-size: 16px;
       color: #093d91;
@@ -142,17 +188,34 @@ header {
 
 .dealers {
   width: 100%; }
+  @media screen and (min-width: 951px) {
+    .dealers {
+      padding: 0 50px; } }
   .dealers .filter-container {
     background-color: #f6f6f6;
     padding: 25px; }
+    @media screen and (min-width: 951px) {
+      .dealers .filter-container {
+        border-radius: 5px;
+        display: flex;
+        justify-content: center; } }
     .dealers .filter-container .top-row {
       display: flex;
       align-items: center; }
+      @media screen and (min-width: 951px) {
+        .dealers .filter-container .top-row {
+          width: auto; } }
       .dealers .filter-container .top-row h6 {
         color: #226bda;
         font-size: 16px;
         margin: 0;
         width: 40%; }
+        @media screen and (min-width: 951px) {
+          .dealers .filter-container .top-row h6 {
+            margin-right: 50px; } }
+        @media screen and (min-width: 951px) and (max-width: 1412px) {
+          .dealers .filter-container .top-row h6 {
+            margin-right: 0; } }
       .dealers .filter-container .top-row .button-container {
         display: flex; }
         .dealers .filter-container .top-row .button-container button {
@@ -168,6 +231,10 @@ header {
           @media screen and (min-width: 300px) and (max-width: 375px) {
             .dealers .filter-container .top-row .button-container button {
               width: 125px; } }
+          @media screen and (min-width: 951px) {
+            .dealers .filter-container .top-row .button-container button {
+              background-color: transparent;
+              border: none; } }
         .dealers .filter-container .top-row .button-container i {
           background-color: #f6f6f6;
           height: 50px;
@@ -180,13 +247,25 @@ header {
           padding-bottom: 7px;
           border-left: none;
           cursor: pointer; }
+          @media screen and (min-width: 951px) {
+            .dealers .filter-container .top-row .button-container i {
+              display: none; } }
     .dealers .filter-container .pop-up-filter {
       background-color: white;
       border: 1px solid #e6e6e6; }
+      @media screen and (min-width: 951px) {
+        .dealers .filter-container .pop-up-filter {
+          display: inherit !important;
+          width: auto;
+          background-color: transparent;
+          border: none; } }
       .dealers .filter-container .pop-up-filter .input-container {
         margin: 25px;
         display: flex;
         align-items: center; }
+        @media screen and (min-width: 951px) {
+          .dealers .filter-container .pop-up-filter .input-container {
+            margin: 15px; } }
         .dealers .filter-container .pop-up-filter .input-container .control {
           position: relative;
           display: block;
@@ -225,11 +304,19 @@ header {
 
 #card-container {
   width: 100%; }
+  @media screen and (min-width: 951px) {
+    #card-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap; } }
 
 #dealer-cards {
   display: flex;
   flex-direction: column;
   align-items: center; }
+  @media screen and (min-width: 951px) {
+    #dealer-cards {
+      flex-direction: row; } }
   #dealer-cards .card {
     display: flex;
     justify-content: center;
@@ -238,11 +325,28 @@ header {
     padding-top: 40px;
     text-align: center;
     width: 100%; }
+    @media screen and (min-width: 951px) {
+      #dealer-cards .card {
+        width: 450px;
+        margin: 25px;
+        border-radius: 3px;
+        box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.25);
+        padding-top: 0; } }
+    @media screen and (min-width: 951px) and (max-width: 1412px) {
+      #dealer-cards .card {
+        width: 400px; } }
     #dealer-cards .card h6 {
       font-size: 22px;
       font-weight: normal;
       margin: 0 0 15px 0;
       width: 80%; }
+      @media screen and (min-width: 951px) {
+        #dealer-cards .card h6 {
+          margin: 0;
+          height: 65px;
+          margin-top: 50px;
+          border-bottom: 1px solid #e6e6e6;
+          margin-bottom: 30px; } }
     #dealer-cards .card .hours {
       text-align: center;
       margin: 15px 0;
@@ -253,6 +357,10 @@ header {
         font-weight: bold;
         font-size: 14px;
         margin: 0 0 5px 0; }
+        @media screen and (min-width: 951px) {
+          #dealer-cards .card .hours h6 {
+            height: auto;
+            border: none; } }
       #dealer-cards .card .hours p {
         font-size: 14px;
         margin: 0 0 5px 0; }
@@ -270,10 +378,18 @@ header {
       color: white;
       font-size: 10px;
       font-weight: bold; }
-      #dealer-cards .card .call span {
+      @media screen and (min-width: 951px) {
+        #dealer-cards .card .call {
+          background-color: transparent;
+          color: black;
+          border: none; } }
+      #dealer-cards .card .call #phone-tap {
         margin-left: 5px;
         margin-right: 5px;
         font-size: 18px; }
+      @media screen and (min-width: 951px) {
+        #dealer-cards .card .call #tap {
+          display: none; } }
       #dealer-cards .card .call i {
         font-size: 16px;
         margin: 0 5px;
@@ -283,6 +399,11 @@ header {
         justify-content: center;
         align-items: center;
         background-color: #093d91; }
+        @media screen and (min-width: 951px) {
+          #dealer-cards .card .call i {
+            color: white;
+            background-color: #226bda;
+            border-radius: 100%; } }
     #dealer-cards .card .contact-pro {
       color: #093d91;
       font-weight: 800;
@@ -303,8 +424,18 @@ header {
       justify-content: space-around;
       align-items: center;
       padding: 25px 0; }
+      @media screen and (min-width: 951px) {
+        #dealer-cards .card .card-bottom {
+          justify-content: flex-start;
+          padding-left: 15%;
+          min-height: 104px;
+          border-bottom-left-radius: 3px;
+          border-bottom-right-radius: 3px; } }
       #dealer-cards .card .card-bottom .pro-container {
         width: 35%; }
+        @media screen and (min-width: 951px) {
+          #dealer-cards .card .card-bottom .pro-container {
+            width: 50%; } }
         #dealer-cards .card .card-bottom .pro-container p {
           display: flex;
           align-items: center;
@@ -325,7 +456,7 @@ footer .connect {
     margin: 40px 0;
     width: 175px; }
   footer .connect .social {
-    width: 100%;
+    width: 25%;
     margin-bottom: 30px;
     display: flex;
     justify-content: space-around; }
@@ -358,10 +489,10 @@ footer .info {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 90%;
+    width: 20%;
     text-align: center; }
     footer .info .row:nth-of-type(2) {
-      width: 95%; }
+      width: 25%; }
     @media screen and (min-width: 951px) {
       footer .info .row:first-of-type {
         display: none; } }
@@ -472,8 +603,9 @@ footer .info {
     .mobile-nav {
       display: flex !important;
       flex-direction: row;
-      position: relative;
-      width: auto; } }
+      position: initial;
+      width: auto;
+      border: none; } }
   .mobile-nav h2 {
     color: #093d91;
     font-size: 18px; }
@@ -512,11 +644,26 @@ footer .info {
       margin-bottom: 3px; }
       .mobile-nav .menu-container .accordion:hover {
         background-color: rgba(0, 0, 0, 0.4); }
+      @media screen and (min-width: 951px) {
+        .mobile-nav .menu-container .accordion {
+          font-size: 14px;
+          color: #093d91;
+          font-weight: 800 !important;
+          background-color: white;
+          margin-bottom: 0;
+          padding: 0; } }
+      @media screen and (min-width: 951px) and (max-width: 1412px) {
+        .mobile-nav .menu-container .accordion {
+          font-size: 12px; } }
       .mobile-nav .menu-container .accordion i {
         color: #46d6d6;
         font-size: 22px !important;
         margin-left: auto;
         margin-right: 25px; }
+        @media screen and (min-width: 951px) {
+          .mobile-nav .menu-container .accordion i {
+            margin-right: 15px;
+            margin-left: auto; } }
     .mobile-nav .menu-container:nth-of-type(4) .accordion {
       margin-bottom: 0px !important; }
     .mobile-nav .menu-container .panel {
@@ -537,7 +684,6 @@ body {
   font-family: 'Open Sans', sans-serif;
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;

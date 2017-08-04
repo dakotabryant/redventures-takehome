@@ -1,16 +1,28 @@
 .dealers
   width: 100%
+  +desktop()
+    padding: 0 50px
   .filter-container
     background-color: #f6f6f6
     padding: 25px
+    +desktop()
+      border-radius: 5px
+      display: flex
+      justify-content: center
     .top-row
       display: flex
       align-items: center
+      +desktop()
+        width: auto
       h6
         color: $blue
         font-size: 16px
         margin: 0
         width: 40%
+        +desktop()
+          margin-right: 50px
+        +laptop()
+          margin-right: 0
       .button-container
         display: flex
         button 
@@ -25,6 +37,9 @@
           outline: none
           +small-mobile()
             width: 125px
+          +desktop()
+            background-color: transparent
+            border: none
         i
           background-color: #f6f6f6
           height: 50px
@@ -37,13 +52,22 @@
           padding-bottom: 7px
           border-left: none
           cursor: pointer
+          +desktop()
+            display: none
     .pop-up-filter
       background-color: white
       border: 1px solid #e6e6e6
+      +desktop()
+        display: inherit !important
+        width: auto
+        background-color: transparent
+        border: none
       .input-container
         margin: 25px
         display: flex
         align-items: center
+        +desktop()
+          margin: 15px
         .control
           position: relative
           display: block
