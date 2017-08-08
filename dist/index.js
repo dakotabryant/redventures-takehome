@@ -1,5 +1,7 @@
 /* eslint-disable */
 (function() {
+
+  //variable declerations
   const dealerNumber = document.getElementById('dealer-number');
   const button = document.getElementsByClassName('button-container')[0];
   const filterContainer = document.getElementsByClassName('pop-up-filter')[0];
@@ -15,6 +17,7 @@
   const panel = document.querySelector('.nav-items');
   const overlay = document.getElementById('overlay');
   const send = document.getElementById('send')
+  //cross-site-scripting prevention since I'm using some innerHTML
   function xss(text) {
     try {
       return text
@@ -28,6 +31,7 @@
       return 'xss failure';
     }
   }
+  //initial appState
 
   let appState = {
     dealers: [],
@@ -40,9 +44,10 @@
     currentDealer: ''
   };
 
+  //object that contains any state editing functions
   const stateEditingObject = {
     state: appState,
-
+    //fetch dealers from json file
     getDealers: function(url) {
       fetch(url)
         .then(data => data.json())
@@ -55,6 +60,7 @@
           renderObject.renderDealers(this.state);
         });
     },
+    //filters dealers based on input values
     filterDealers: function(e) {
       if (!e.target.matches('input')) return;
       let newFilters = appState.filters.filter(word => {
@@ -74,11 +80,13 @@
         return;
       }
     },
+    //stores current dealer so we can pass to additional dom elements
     currentDealer: function(e) {
       appState.currentDealer =
         appState.dealers[parseInt(e.target.getAttribute('key'))];
       console.log(appState);
     },
+    //non functioning, just illustrating understanding of sending email to backend
     composeEmail: function(data) {
       opts = {
         type: 'POST'
@@ -88,9 +96,11 @@
       });
     }
   };
+
+  //object that contains all the functions related to rendering or updating the dom
   const renderObject = {
     state: appState,
-
+    //initial render function that's called after we get dealer data
     renderDealers: function(state) {
       const cardsParent = document.getElementById('dealer-cards');
       let newDealers = document.createElement('div');
@@ -100,10 +110,12 @@
 
       newDealers.id = 'card-container';
       cardsParent.innerHTML = '';
-
+      
       state.dealers.map((dealer, index) => {
         const { certifications, weekHours, name, phone1, email } = dealer.data;
-
+        console.log(index)
+        
+        //prevents us from rendering dealers that are in the filter
         if (!certifications.includes(...state.filters)) {
           return;
         }
@@ -173,6 +185,7 @@
       });
       cardsParent.appendChild(newDealers);
     },
+    //email function for rendering on contact pro button
     renderEmail: function(state) {
       const emailTitle = document.getElementById('email-title');
       const emailText = document.getElementById('email-copy');
@@ -188,6 +201,7 @@
         )
       );
     },
+    //shows filters when you click dropdown
     showFilters: function() {
       filterContainer.classList.toggle('hidden');
     },
@@ -236,6 +250,7 @@
           break;
       }
     },
+    //hamburger menu handlers
     showMobileMenu: function(e) {
       menu.classList.toggle('hidden');
       document.body.classList.toggle('hide-scroll');
@@ -244,6 +259,7 @@
       menu.classList.toggle('hidden');
       document.body.classList.toggle('hide-scroll');
     },
+    //expand accordion handler
     expandMenu: function(e) {
       const menus = document.querySelectorAll('.menu-container');
       if (!e.target.matches('.accordion')) return;
@@ -264,10 +280,13 @@
       e.target.nextElementSibling.classList.toggle('hidden');
     }
   };
+  //initial grab of data
   window.addEventListener('load', function() {
-    stateEditingObject.getDealers('./data/dealers.json');
+    stateEditingObject.getDealers('https://api.myjson.com/bins/l3geh');
   });
 
+
+  //event listeners
   button.addEventListener('click', renderObject.showFilters);
   cardParent.addEventListener('click', renderObject.showModal);
   closeModalButton.addEventListener('click', renderObject.closeModal);
